@@ -33,7 +33,7 @@ const Navbar = () => {
 	return (
 		<div className="flex justify-between px-5 py-3 my-3">
 			<span className="text-xl font-bold border-b-4 text-green border-green md:text-2xl">{activeItem}</span>
-			<div className="flex space-x-5 text-lg ">
+			<div className="flex space-x-5 text-lg font-bold ">
 				<NavItem activeItem={activeItem} setActiveItem={setActiveItem} route="/" name="About" />
 				<NavItem activeItem={activeItem} setActiveItem={setActiveItem} route="/projects" name="Projects" />
 				<NavItem activeItem={activeItem} setActiveItem={setActiveItem} route="/resume" name="Resume" />
