@@ -7,3 +7,9 @@ export interface IServices {
 	about: string
 	
 }
+
+export interface ISkill {
+	name: string,
+	level: string,
+	Icon: IconType
+}
