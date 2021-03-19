@@ -9,13 +9,13 @@ const index = () => {
 				I am currently pursuing Bachelor Degree(Final Year) in Computer Engineering from University of Engineering and Technology Taxila,
 				Pakistan. I have 3+ years of experience in Web Development. My experties are listed below.
 			</h5>
-			<div className="flex-grow p-4 mt-5 bg-gray-400 " style={{ marginLeft: '-1.5rem', marginRight: '-1.5rem' }}>
+			<div className="flex-grow p-4 mt-5 bg-gray-400 dark:bg-dark-100 " style={{ marginLeft: '-1.5rem', marginRight: '-1.5rem' }}>
 				<h4 className="pb-5 my-3 text-xl font-semibold tracking-wide">What I am Offer</h4>
 
 				<div className="grid gap-6 my-3 lg:grid-cols-2">
 					{/* children's initial and animate property should be same as the parent during a stagger effect  */}
 					{services.map((service) => (
-						<div className="bg-gray-200 rounded-lg lg:col-span-1" key={service.title}>
+						<div className="bg-gray-200 rounded-lg lg:col-span-1 dark:bg-dark-200" key={service.title}>
 							<ServiceCard service={service} />
 						</div>
 					))}
