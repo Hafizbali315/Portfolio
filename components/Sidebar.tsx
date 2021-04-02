@@ -13,7 +13,7 @@ const Sidebar = () => {
 
 	return (
 		<div>
-			<Image src="/profilePic.jpg" alt="profilepic" width={200} height={200} className="w-32 h-32 mx-auto rounded-full" />
+			<Image src="/profilePic.jpg" alt="profilepic" width="128" height="128" quality="100" className="mx-auto rounded-full" />
 			<h3 className="my-4 text-3xl font-medium tracking-wider font-kaushan">
 				<span className="text-green">Muhammad</span> Bilal
 			</h3>
