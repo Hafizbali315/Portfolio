@@ -1,6 +1,6 @@
 import { FunctionComponent, useEffect, useState } from 'react'
 import Link from 'next/link'
-import { useRouter } from 'next/Router'
+import { useRouter } from 'next/router'
 
 const NavItem: FunctionComponent<{
 	activeItem: string
