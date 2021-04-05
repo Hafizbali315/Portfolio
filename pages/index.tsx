@@ -4,8 +4,12 @@ import { services } from '../data'
 import { motion } from 'framer-motion'
 import { fadeInUp, stagger } from '../animations'
 import { routeAnimation } from './../animations'
+import { GetServerSideProps } from 'next'
+import { GetServerSidePropsContext } from 'next'
 
-const index = () => {
+const index = ({ endpoint }) => {
+	console.log(endpoint)
+
 	return (
 		<motion.div className="flex flex-col flex-grow px-6 pt-1" variants={routeAnimation} initial="initial" animate="animate" exit="exit">
 			<h5 className="my-3 font-medium">
@@ -30,14 +34,12 @@ const index = () => {
 
 //?   called every time  the page refreshed
 
-// export const getServerSideProps: GetServerSideProps = async (
-//    context: GetServerSidePropsContext
-// ) => {
-//    const res = await fetch('http://localhost:3000/api/services')
-//    const data = await res.json()
-//    console.log(data)
-//    return { props: { services: data.services } }
-// }
+export const getServerSideProps: GetServerSideProps = async (context: GetServerSidePropsContext) => {
+	//    const res = await fetch('http://localhost:3000/api/services')
+	//    const data = await res.json()
+	//    console.log(data)
+	return { props: { endpoint: process.env.VERCEL_URL } }
+}
 
 //?>>>>  called only during the build of the project
 
