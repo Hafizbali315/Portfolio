@@ -1,4 +1,4 @@
-import { FunctionComponent, useState } from 'react'
+import { FunctionComponent } from 'react'
 import { IProject } from './../type'
 import { AiFillGithub, AiFillProject } from 'react-icons/ai'
 import { MdClose } from 'react-icons/md'
@@ -8,18 +8,18 @@ import { motion } from 'framer-motion'
 import { stagger } from '../animations'
 import { fadeInUp } from './../animations'
 
-const ProjectCard: FunctionComponent<{ project: IProject }> = ({
-	project: { name, category, image_path, github_url, deployed_url, description, key_techs },
+const ProjectCard: FunctionComponent<{ project: IProject; showDetails: null | number; setShowDetails: (id: null | number) => void }> = ({
+	project: { name, category, image_path, github_url, deployed_url, description, key_techs, id },
+	showDetails,
+	setShowDetails,
 }) => {
-	const [showDetails, setShowDetails] = useState(false)
-
 	return (
 		<div>
 			<Image
 				src={image_path}
 				alt={name}
 				className="cursor-pointer"
-				onClick={() => setShowDetails(true)}
+				onClick={() => setShowDetails(id)}
 				width="300"
 				height="150"
 				layout="responsive"
@@ -29,10 +29,10 @@ const ProjectCard: FunctionComponent<{ project: IProject }> = ({
 
 			<p className="my-2 text-center">{name}</p>
 
-			{showDetails && (
-				<div className="absolute top-0 left-0 z-10 grid w-full h-auto p-2 text-black bg-gray-100 md:grid-cols-2 gap-x-12 dark:text-white dark:bg-dark-100">
+			{showDetails === id && (
+				<div className="absolute top-0 left-0 z-10 grid w-full h-auto p-2 text-black bg-gray-100 rounded-lg md:p-10 md:grid-cols-2 gap-x-12 dark:text-white dark:bg-dark-100">
 					<motion.div variants={stagger} initial="initial" animate="animate">
-						<motion.div variants={fadeInUp}>
+						<motion.div variants={fadeInUp} className="border-4 border-gray-100">
 							<Image src={image_path} alt={name} layout="responsive" width="300" height="150" />
 						</motion.div>
 						<motion.div variants={fadeInUp} className="flex justify-center my-4 space-x-3">
@@ -64,7 +64,7 @@ const ProjectCard: FunctionComponent<{ project: IProject }> = ({
 
 					<motion.button
 						variants={fadeInUp}
-						onClick={() => setShowDetails(false)}
+						onClick={() => setShowDetails(null)}
 						className="absolute p-1 bg-gray-200 rounded-full top-3 right-3 focus:outline-none dark:bg-dark-200"
 					>
 						<MdClose size={30} />
